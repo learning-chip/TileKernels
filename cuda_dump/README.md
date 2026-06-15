@@ -22,9 +22,10 @@ If editable install works in your environment: `pip install -e .`
 
 ```bash
 python scripts/dump_cuda_sources.py
+python scripts/copy_tl_templates_headers.py
 ```
 
-The script:
+The dump script:
 
 1. Discovers all `tile_kernels/**/*_kernel.py` modules
 2. Finds every `@tilelang.jit`-decorated factory via `tilelang.jit.JITImpl`
@@ -32,7 +33,32 @@ The script:
 4. Writes `.cu` files under `cuda_dump/tile_kernels/`
 5. Updates [`manifest.json`](manifest.json) and [`MANIFEST.md`](MANIFEST.md)
 
+The header copy script vendors all `tl_templates/cuda` headers referenced by the dumps (including transitive includes) into [`tl_templates/cuda/`](tl_templates/cuda/).
+
 Set `TILELANG_PRINT_ON_COMPILATION=0` (default in the script) to suppress compile noise.
+
+## Self-contained template headers
+
+Dumped kernels include lines such as:
+
+```c
+#include <tl_templates/cuda/gemm.h>
+#include <tl_templates/cuda/copy.h>
+```
+
+Those headers are vendored under [`cuda_dump/tl_templates/cuda/`](tl_templates/cuda/) so the dumps do not depend on a TileLang source or install tree for template resolution. Regenerate them with:
+
+```bash
+python scripts/copy_tl_templates_headers.py
+```
+
+To compile or inspect a kernel locally:
+
+```bash
+nvcc -I cuda_dump -arch=sm_90 cuda_dump/tile_kernels/moe/topk_gate_kernel.cu
+```
+
+The vendored headers may still pull in **external** toolchain dependencies (CUDA Toolkit, CuTe, CUTLASS). See [`tl_templates/cuda/README.md`](tl_templates/cuda/README.md) for the file list and notes.
 
 ## How TileLang exposes CUDA C
 
@@ -67,6 +93,8 @@ cuda_dump/
 ├── README.md
 ├── manifest.json
 ├── MANIFEST.md
+├── tl_templates/
+│   └── cuda/          # vendored TileLang CUDA template headers
 └── tile_kernels/
     ├── moe/
     ├── quant/
