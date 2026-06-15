@@ -1,0 +1,93 @@
+SM120 Compatibility Test Log — 2026-06-15 20:41:56 UTC
+============================================================
+
+[PASS] moe/topk_gate
+
+[PASS] moe/top2_sum_gate
+
+[PASS] moe/topk_sum_and_topk_group_idx
+
+[PASS] moe/get_fused_mapping
+
+[PASS] moe/expand_to_fused
+
+[PASS] moe/expand_to_fused_with_sf
+
+[PASS] moe/reduce_fused
+
+[PASS] moe/normalize_weight
+
+[PASS] moe/aux_fi
+
+[PASS] moe/group_count
+
+[PASS] moe/mask_indices_by_tp
+
+[PASS] moe/inplace_unique_group_indices
+
+[PASS] quant/per_token_cast
+
+[PASS] quant/per_token_cast_with_sf_only
+
+[PASS] quant/per_token_cast_with_precomputed_sf
+
+[PASS] quant/per_token_cast_to_e5m6
+
+[PASS] quant/per_block_cast
+
+[PASS] quant/per_block_cast_with_sf_only
+
+[PASS] quant/per_block_cast_with_precomputed_sf
+
+[PASS] quant/per_block_cast_lossless
+
+[PASS] quant/per_channel_cast
+
+[PASS] quant/per_channel_cast_fused
+
+[PASS] quant/per_channel_cast_and_transpose
+
+[PASS] quant/cast_back
+
+[PASS] quant/per_token_cast_back
+
+[PASS] quant/cast_back_e5m6
+
+[PASS] quant/swiglu_forward_and_per_token_cast
+
+[PASS] quant/swiglu_backward_and_per_token_cast
+
+[PASS] quant/swiglu_forward_and_per_channel_cast_and_transpose
+
+[PASS] transpose/transpose
+
+[PASS] transpose/batched_transpose
+
+[PASS] engram/engram_hash
+
+[PASS] engram/engram_gate_fwd
+
+[PASS] engram/engram_gate_bwd
+
+[PASS] engram/fused_weight
+
+[PASS] engram/grad_w_reduce
+
+[PASS] mhc/expand_to_mhc
+
+[PASS] mhc/mhc_pre_norm_fn
+
+[PASS] mhc/mhc_head_compute_mix
+
+[PASS] mhc/mhc_pre_split_mixes
+
+[PASS] mhc/mhc_pre_apply_mix
+
+[PASS] mhc/mhc_pre_big_fuse
+
+[PASS] mhc/sinkhorn_normalize
+
+[PASS] mhc/mhc_post
+
+[PASS] mhc/mhc_multilayer_recompute
+
