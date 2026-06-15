@@ -1,0 +1,915 @@
+[
+  {
+    "cuda_file": "tile_kernels/engram/engram_fused_weight_kernel.cu",
+    "source_py": "tile_kernels/engram/engram_fused_weight_kernel.py",
+    "jit_factory": "get_engram_fused_weight_kernel",
+    "prim_func": "engram_fused_weight_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        4
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.engram.fused_weight"
+  },
+  {
+    "cuda_file": "tile_kernels/engram/engram_gate_kernel__get_engram_gate_bwd_kernel.cu",
+    "source_py": "tile_kernels/engram/engram_gate_kernel.py",
+    "jit_factory": "get_engram_gate_bwd_kernel",
+    "prim_func": "engram_gate_bwd_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        0.011811389781538352,
+        28672,
+        7168,
+        7168,
+        188
+      ],
+      "kwargs": {
+        "clamp_value": 1e-06,
+        "hc_mult": 4
+      }
+    },
+    "public_api": "tile_kernels.engram.engram_gate_bwd"
+  },
+  {
+    "cuda_file": "tile_kernels/engram/engram_gate_kernel__get_engram_gate_fwd_kernel.cu",
+    "source_py": "tile_kernels/engram/engram_gate_kernel.py",
+    "jit_factory": "get_engram_gate_fwd_kernel",
+    "prim_func": "engram_gate_fwd_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        1e-20,
+        0.011811389781538352,
+        28672,
+        7168,
+        7168,
+        188
+      ],
+      "kwargs": {
+        "clamp_value": 1e-06,
+        "hc_mult": 4,
+        "save_for_backward": true
+      }
+    },
+    "public_api": "tile_kernels.engram.engram_gate_fwd"
+  },
+  {
+    "cuda_file": "tile_kernels/engram/engram_grad_w_reduce_kernel.cu",
+    "source_py": "tile_kernels/engram/engram_grad_w_reduce_kernel.py",
+    "jit_factory": "get_engram_grad_w_reduce_kernel",
+    "prim_func": "engram_grad_w_reduce_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        188,
+        4
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.engram.grad_w_reduce"
+  },
+  {
+    "cuda_file": "tile_kernels/engram/engram_hash_kernel.cu",
+    "source_py": "tile_kernels/engram/engram_hash_kernel.py",
+    "jit_factory": "get_engram_hash_kernel",
+    "prim_func": "engram_hash_kernel",
+    "compile_args": {
+      "args": [],
+      "kwargs": {
+        "max_ngram_size": 3,
+        "num_ngram_layers": 2,
+        "num_embed_table_per_ngram": 8
+      }
+    },
+    "public_api": "tile_kernels.engram.engram_hash"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/expand_kernel__expand_to_mhc_bwd_tl.cu",
+    "source_py": "tile_kernels/mhc/expand_kernel.py",
+    "jit_factory": "expand_to_mhc_bwd_tl",
+    "prim_func": "expand_to_mhc_bwd_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        4
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.expand.expand_to_mhc"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/expand_kernel__expand_to_mhc_fwd_tl.cu",
+    "source_py": "tile_kernels/mhc/expand_kernel.py",
+    "jit_factory": "expand_to_mhc_fwd_tl",
+    "prim_func": "expand_to_mhc_fwd_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        4
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.expand.expand_to_mhc"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/head_compute_mix_kernel___mhc_head_compute_mix_bwd.cu",
+    "source_py": "tile_kernels/mhc/head_compute_mix_kernel.py",
+    "jit_factory": "_mhc_head_compute_mix_bwd",
+    "prim_func": "mhc_head_compute_mix_bwd_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        32,
+        188
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.head_compute_mix.mhc_head_compute_mix"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/head_compute_mix_kernel___mhc_head_compute_mix_fwd.cu",
+    "source_py": "tile_kernels/mhc/head_compute_mix_kernel.py",
+    "jit_factory": "_mhc_head_compute_mix_fwd",
+    "prim_func": "mhc_head_compute_mix_fwd_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        1e-06,
+        32
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.head_compute_mix.mhc_head_compute_mix"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/multilayer_recompute_kernel.cu",
+    "source_py": "tile_kernels/mhc/multilayer_recompute_kernel.py",
+    "jit_factory": "_mhc_multilayer_recompute_kernel",
+    "prim_func": "kernel",
+    "compile_args": {
+      "args": [
+        4,
+        7168,
+        10,
+        9
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.multilayer_recompute.mhc_multilayer_recompute"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/norm_fn_kernel___mhc_fn_normw_merge_bwd.cu",
+    "source_py": "tile_kernels/mhc/norm_fn_kernel.py",
+    "jit_factory": "_mhc_fn_normw_merge_bwd",
+    "prim_func": "_mhc_fn_normw_merge_bwd_",
+    "compile_args": {
+      "args": [
+        4096,
+        28672
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.norm_fn.mhc_fn_normw_merge"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/norm_fn_kernel___mhc_fn_normw_merge_fwd.cu",
+    "source_py": "tile_kernels/mhc/norm_fn_kernel.py",
+    "jit_factory": "_mhc_fn_normw_merge_fwd",
+    "prim_func": "_mhc_fn_normw_merge_fwd_",
+    "compile_args": {
+      "args": [
+        4096,
+        28672
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.norm_fn.mhc_fn_normw_merge"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/norm_fn_kernel___mhc_pre_norm_fn_bwd_mul.cu",
+    "source_py": "tile_kernels/mhc/norm_fn_kernel.py",
+    "jit_factory": "_mhc_pre_norm_fn_bwd_mul",
+    "prim_func": "_mhc_pre_norm_fn_bwd_mul_kernel",
+    "compile_args": {
+      "args": [
+        24,
+        1,
+        28672
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.norm_fn.mhc_pre_norm_fn"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/norm_fn_kernel___mhc_pre_norm_fn_bwd_norm.cu",
+    "source_py": "tile_kernels/mhc/norm_fn_kernel.py",
+    "jit_factory": "_mhc_pre_norm_fn_bwd_norm",
+    "prim_func": "_mhc_pre_norm_fn_bwd_norm_kernel",
+    "compile_args": {
+      "args": [
+        24,
+        1,
+        28672,
+        1e-06
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.norm_fn.mhc_pre_norm_fn"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/norm_fn_kernel___mhc_pre_norm_fn_fwd_mul.cu",
+    "source_py": "tile_kernels/mhc/norm_fn_kernel.py",
+    "jit_factory": "_mhc_pre_norm_fn_fwd_mul",
+    "prim_func": "_mhc_pre_norm_fn_fwd_mul_kernel",
+    "compile_args": {
+      "args": [
+        24,
+        1,
+        28672
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.norm_fn.mhc_pre_norm_fn"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/norm_fn_kernel___mhc_pre_norm_fn_fwd_norm.cu",
+    "source_py": "tile_kernels/mhc/norm_fn_kernel.py",
+    "jit_factory": "_mhc_pre_norm_fn_fwd_norm",
+    "prim_func": "_mhc_pre_norm_fn_fwd_norm_kernel",
+    "compile_args": {
+      "args": [
+        24,
+        1,
+        28672,
+        1e-06,
+        1
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.norm_fn.mhc_pre_norm_fn"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/post_kernel___mhc_post_bwd.cu",
+    "source_py": "tile_kernels/mhc/post_kernel.py",
+    "jit_factory": "_mhc_post_bwd",
+    "prim_func": "_mhc_post_bwd_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        7168
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.post.mhc_post"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/post_kernel___mhc_post_fwd.cu",
+    "source_py": "tile_kernels/mhc/post_kernel.py",
+    "jit_factory": "_mhc_post_fwd",
+    "prim_func": "_mhc_post_fwd_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        7168
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.post.mhc_post"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/pre_apply_mix_kernel___mhc_pre_apply_mix_bwd.cu",
+    "source_py": "tile_kernels/mhc/pre_apply_mix_kernel.py",
+    "jit_factory": "_mhc_pre_apply_mix_bwd",
+    "prim_func": "_mhc_pre_apply_mix_bwd_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        7168
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.pre_apply_mix.mhc_pre_apply_mix"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/pre_apply_mix_kernel___mhc_pre_apply_mix_fwd.cu",
+    "source_py": "tile_kernels/mhc/pre_apply_mix_kernel.py",
+    "jit_factory": "_mhc_pre_apply_mix_fwd",
+    "prim_func": "_mhc_pre_apply_mix_fwd_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        7168
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.pre_apply_mix.mhc_pre_apply_mix"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/pre_big_fuse_kernel.cu",
+    "source_py": "tile_kernels/mhc/pre_big_fuse_kernel.py",
+    "jit_factory": "_mhc_pre_big_fuse",
+    "prim_func": "mhc_pre_big_fuse",
+    "compile_args": {
+      "args": [
+        7168,
+        1e-06,
+        1e-06,
+        1e-06,
+        1.0,
+        10
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.pre_big_fuse.mhc_pre_big_fuse"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/pre_split_mixes_kernel___mhc_pre_split_mixes_bwd.cu",
+    "source_py": "tile_kernels/mhc/pre_split_mixes_kernel.py",
+    "jit_factory": "_mhc_pre_split_mixes_bwd",
+    "prim_func": "mhc_pre_split_mixes_bwd_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        1.0,
+        32,
+        188
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.pre_split_mixes.mhc_pre_split_mixes"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/pre_split_mixes_kernel___mhc_pre_split_mixes_fwd.cu",
+    "source_py": "tile_kernels/mhc/pre_split_mixes_kernel.py",
+    "jit_factory": "_mhc_pre_split_mixes_fwd",
+    "prim_func": "mhc_pre_split_mixes_fwd_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        1.0,
+        1e-06,
+        32
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.pre_split_mixes.mhc_pre_split_mixes"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/sinkhorn_kernel___mhc_sinkhorn_bwd.cu",
+    "source_py": "tile_kernels/mhc/sinkhorn_kernel.py",
+    "jit_factory": "_mhc_sinkhorn_bwd",
+    "prim_func": "mhc_sinkhorn_backward_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        32,
+        10,
+        1e-06
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.sinkhorn.sinkhorn_normalize"
+  },
+  {
+    "cuda_file": "tile_kernels/mhc/sinkhorn_kernel___mhc_sinkhorn_fwd.cu",
+    "source_py": "tile_kernels/mhc/sinkhorn_kernel.py",
+    "jit_factory": "_mhc_sinkhorn_fwd",
+    "prim_func": "mhc_sinkhorn_kernel",
+    "compile_args": {
+      "args": [
+        4,
+        1,
+        10,
+        1e-06
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.modeling.mhc.ops.sinkhorn.sinkhorn_normalize"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/aux_fi_kernel.cu",
+    "source_py": "tile_kernels/moe/aux_fi_kernel.py",
+    "jit_factory": "get_aux_fi_kernel",
+    "prim_func": "aux_fi_kernel",
+    "compile_args": {
+      "args": [
+        6,
+        72,
+        188
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.aux_fi"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/expand_to_fused_kernel.cu",
+    "source_py": "tile_kernels/moe/expand_to_fused_kernel.py",
+    "jit_factory": "get_expand_to_fused_kernel",
+    "prim_func": "expand_to_fused_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        6,
+        128,
+        false,
+        false,
+        "float8_e4m3",
+        "float32"
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.expand_to_fused_with_sf"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/get_fused_mapping_kernel.cu",
+    "source_py": "tile_kernels/moe/get_fused_mapping_kernel.py",
+    "jit_factory": "get_get_fused_mapping_kernel",
+    "prim_func": "get_fused_mapping_kernel",
+    "compile_args": {
+      "args": [
+        72,
+        6,
+        128,
+        188
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.get_fused_mapping"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/group_count_kernel.cu",
+    "source_py": "tile_kernels/moe/group_count_kernel.py",
+    "jit_factory": "get_group_count_kernel",
+    "prim_func": "group_count_kernel",
+    "compile_args": {
+      "args": [
+        6,
+        8,
+        188
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.group_count"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/inplace_unique_group_indices_kernel.cu",
+    "source_py": "tile_kernels/moe/inplace_unique_group_indices_kernel.py",
+    "jit_factory": "get_inplace_unique_group_indices_kernel",
+    "prim_func": "inplace_unique_group_indices_kernel",
+    "compile_args": {
+      "args": [
+        6,
+        64,
+        188
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.inplace_unique_group_indices"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/mask_indices_by_tp_kernel.cu",
+    "source_py": "tile_kernels/moe/mask_indices_by_tp_kernel.py",
+    "jit_factory": "get_mask_indices_by_tp_kernel",
+    "prim_func": "mask_indices_by_tp_kernel",
+    "compile_args": {
+      "args": [
+        6,
+        "int64"
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.mask_indices_by_tp"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/normalize_weight_kernel.cu",
+    "source_py": "tile_kernels/moe/normalize_weight_kernel.py",
+    "jit_factory": "get_normalize_weight_kernel",
+    "prim_func": "normalize_weight_kernel",
+    "compile_args": {
+      "args": [
+        6
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.normalize_weight"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/reduce_fused_kernel.cu",
+    "source_py": "tile_kernels/moe/reduce_fused_kernel.py",
+    "jit_factory": "get_reduce_fused_kernel",
+    "prim_func": "reduce_fused_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        6,
+        "bfloat16",
+        "bfloat16",
+        false,
+        true,
+        false
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.reduce_fused"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/top2_sum_gate_kernel.cu",
+    "source_py": "tile_kernels/moe/top2_sum_gate_kernel.py",
+    "jit_factory": "get_top2_sum_gate_kernel",
+    "prim_func": "top2_sum_gate_kernel",
+    "compile_args": {
+      "args": [
+        0,
+        6,
+        8,
+        8,
+        256,
+        false,
+        false,
+        false,
+        false
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.top2_sum_gate"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/topk_gate_kernel.cu",
+    "source_py": "tile_kernels/moe/topk_gate_kernel.py",
+    "jit_factory": "get_topk_gate_kernel",
+    "prim_func": "topk_gate_kernel",
+    "compile_args": {
+      "args": [
+        72,
+        6
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.topk_gate"
+  },
+  {
+    "cuda_file": "tile_kernels/moe/topk_sum_and_topk_group_idx_kernel.cu",
+    "source_py": "tile_kernels/moe/topk_sum_and_topk_group_idx_kernel.py",
+    "jit_factory": "get_topk_sum_and_topk_group_idx_kernel",
+    "prim_func": "topk_sum_and_topk_group_idx_kernel",
+    "compile_args": {
+      "args": [
+        8,
+        32,
+        8,
+        2
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.moe.topk_sum_and_topk_group_idx"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/cast_back_e5m6_kernel.cu",
+    "source_py": "tile_kernels/quant/cast_back_e5m6_kernel.py",
+    "jit_factory": "get_cast_back_e5m6_kernel",
+    "prim_func": "cast_back_e5m6_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        {
+          "torch_dtype": "torch.uint32",
+          "sf_block": [
+            128,
+            128
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "with_sf": true
+        },
+        "bfloat16"
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.cast_back_e5m6"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/cast_back_kernel.cu",
+    "source_py": "tile_kernels/quant/cast_back_kernel.py",
+    "jit_factory": "get_cast_back_kernel",
+    "prim_func": "cast_back_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            128,
+            128
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "with_sf": true
+        },
+        "bfloat16"
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.cast_back"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/per_block_cast_kernel.cu",
+    "source_py": "tile_kernels/quant/per_block_cast_kernel.py",
+    "jit_factory": "get_per_block_cast_kernel",
+    "prim_func": "per_block_cast_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        {
+          "torch_dtype": "torch.bfloat16",
+          "sf_block": [
+            1,
+            1
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "with_sf": false
+        },
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            128,
+            128
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        }
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.per_block_cast"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/per_block_cast_lossless_kernel.cu",
+    "source_py": "tile_kernels/quant/per_block_cast_lossless_kernel.py",
+    "jit_factory": "get_per_block_cast_lossless_kernel",
+    "prim_func": "per_block_cast_lossless_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        7168,
+        {
+          "torch_dtype": "torch.int8",
+          "sf_block": [
+            1,
+            32
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "with_sf": true
+        },
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            128,
+            128
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        }
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.per_block_cast_lossless"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/per_channel_cast_and_transpose_kernel.cu",
+    "source_py": "tile_kernels/quant/per_channel_cast_and_transpose_kernel.py",
+    "jit_factory": "get_per_channel_cast_and_transpose_kernel",
+    "prim_func": "per_channel_cast_and_transpose_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        "bfloat16",
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            128,
+            1
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        }
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.per_channel_cast_and_transpose"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/per_channel_cast_fused_kernel.cu",
+    "source_py": "tile_kernels/quant/per_channel_cast_fused_kernel.py",
+    "jit_factory": "get_per_channel_cast_fused_kernel",
+    "prim_func": "per_channel_cast_fused_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        false,
+        {
+          "torch_dtype": "torch.bfloat16",
+          "sf_block": [
+            1,
+            1
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "with_sf": false
+        },
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            128,
+            1
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        }
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.per_channel_cast_fused"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/per_token_cast_kernel.cu",
+    "source_py": "tile_kernels/quant/per_token_cast_kernel.py",
+    "jit_factory": "get_per_token_cast_kernel",
+    "prim_func": "per_token_cast_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        7168,
+        {
+          "torch_dtype": "torch.bfloat16",
+          "sf_block": [
+            1,
+            1
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "with_sf": false
+        },
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            1,
+            128
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        }
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.per_token_cast"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/per_token_cast_to_e5m6_kernel.cu",
+    "source_py": "tile_kernels/quant/per_token_cast_to_e5m6_kernel.py",
+    "jit_factory": "get_per_token_cast_to_e5m6_kernel",
+    "prim_func": "per_token_cast_to_e5m6_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        7168,
+        {
+          "torch_dtype": "torch.bfloat16",
+          "sf_block": [
+            1,
+            1
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "with_sf": false
+        },
+        {
+          "torch_dtype": "torch.uint32",
+          "sf_block": [
+            1,
+            7168
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": 0.0001
+        }
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.per_token_cast_to_e5m6"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/swiglu_backward_and_per_token_cast_kernel.cu",
+    "source_py": "tile_kernels/quant/swiglu_backward_and_per_token_cast_kernel.py",
+    "jit_factory": "get_swiglu_backward_and_per_token_cast_kernel",
+    "prim_func": "swiglu_backward_and_per_token_cast_kernel",
+    "compile_args": {
+      "args": [
+        3584,
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            1,
+            128
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        },
+        false
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.swiglu_backward_and_per_token_cast"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/swiglu_forward_and_per_channel_cast_and_transpose_kernel.cu",
+    "source_py": "tile_kernels/quant/swiglu_forward_and_per_channel_cast_and_transpose_kernel.py",
+    "jit_factory": "get_swiglu_forward_and_per_channel_cast_and_transpose_kernel",
+    "prim_func": "swiglu_forward_and_per_channel_cast_and_transpose_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        false,
+        false,
+        "bfloat16",
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            128,
+            1
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        },
+        0.0
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.swiglu_forward_and_per_channel_cast_and_transpose"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/swiglu_forward_and_per_token_cast_kernel.cu",
+    "source_py": "tile_kernels/quant/swiglu_forward_and_per_token_cast_kernel.py",
+    "jit_factory": "get_swiglu_forward_and_per_token_cast_kernel",
+    "prim_func": "swiglu_forward_and_per_token_cast_kernel",
+    "compile_args": {
+      "args": [
+        3584,
+        false,
+        false,
+        false,
+        false,
+        "bfloat16",
+        {
+          "torch_dtype": "torch.float8_e4m3fn",
+          "sf_block": [
+            1,
+            128
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        },
+        null
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.quant.swiglu_forward_and_per_token_cast"
+  },
+  {
+    "cuda_file": "tile_kernels/transpose/batched_transpose_kernel.cu",
+    "source_py": "tile_kernels/transpose/batched_transpose_kernel.py",
+    "jit_factory": "get_batched_transpose_kernel",
+    "prim_func": "batched_transpose_kernel",
+    "compile_args": {
+      "args": [
+        0,
+        0,
+        "bfloat16"
+      ],
+      "kwargs": {}
+    },
+    "public_api": "tile_kernels.transpose.transpose"
+  }
+]
