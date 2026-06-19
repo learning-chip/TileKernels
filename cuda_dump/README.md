@@ -106,6 +106,7 @@ cuda_dump/
 | Python source | CUDA output |
 |---------------|-------------|
 | One `@tilelang.jit` in file | `{name}_kernel.cu` (`.py` → `.cu`) |
+| One `@tilelang.jit`, multiple format variants | `{name}_kernel__{variant}.cu` (e.g. `per_block_cast_kernel__e2m1.cu`) |
 | Multiple `@tilelang.jit` in file | `{name}_kernel__{factory_name}.cu` |
 
 Examples:
@@ -171,6 +172,6 @@ Different compile-time args produce different CUDA. To dump another specializati
 
 ## Inventory
 
-- **48** `@tilelang.jit` factories → **48** `.cu` files
+- **49** `@tilelang.jit` factory dumps → **49** `.cu` files (including MXFP8/MXFP4 variants where applicable)
 - **36** kernel Python modules (1 wrapper excluded)
-- Domains: quant 12, moe 11, mhc 20, engram 5, transpose 1
+- Domains: quant 13, moe 11, mhc 20, engram 5, transpose 1

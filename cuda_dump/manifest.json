@@ -616,7 +616,7 @@
     "public_api": "tile_kernels.quant.cast_back"
   },
   {
-    "cuda_file": "tile_kernels/quant/per_block_cast_kernel.cu",
+    "cuda_file": "tile_kernels/quant/per_block_cast_kernel__e4m3.cu",
     "source_py": "tile_kernels/quant/per_block_cast_kernel.py",
     "jit_factory": "get_per_block_cast_kernel",
     "prim_func": "per_block_cast_kernel",
@@ -645,9 +645,47 @@
           "custom_clamp_min_value": null
         }
       ],
-      "kwargs": {}
+      "kwargs": {},
+      "variant": "e4m3"
     },
-    "public_api": "tile_kernels.quant.per_block_cast"
+    "public_api": "tile_kernels.quant.per_block_cast",
+    "variant": "e4m3"
+  },
+  {
+    "cuda_file": "tile_kernels/quant/per_block_cast_kernel__e2m1.cu",
+    "source_py": "tile_kernels/quant/per_block_cast_kernel.py",
+    "jit_factory": "get_per_block_cast_kernel",
+    "prim_func": "per_block_cast_kernel",
+    "compile_args": {
+      "args": [
+        7168,
+        {
+          "torch_dtype": "torch.bfloat16",
+          "sf_block": [
+            1,
+            1
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "with_sf": false
+        },
+        {
+          "torch_dtype": "torch.int8",
+          "sf_block": [
+            128,
+            128
+          ],
+          "use_tma_aligned_col_major_sf": false,
+          "use_packed_ue8m0": false,
+          "round_sf": true,
+          "custom_clamp_min_value": null
+        }
+      ],
+      "kwargs": {},
+      "variant": "e2m1"
+    },
+    "public_api": "tile_kernels.quant.per_block_cast",
+    "variant": "e2m1"
   },
   {
     "cuda_file": "tile_kernels/quant/per_block_cast_lossless_kernel.cu",

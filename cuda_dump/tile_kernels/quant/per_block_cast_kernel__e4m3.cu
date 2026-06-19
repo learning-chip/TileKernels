@@ -2,7 +2,8 @@
 // Source Python: tile_kernels/quant/per_block_cast_kernel.py
 // JIT factory: get_per_block_cast_kernel
 // prim_func: per_block_cast_kernel
-// Compile args: {"args": [7168, {"sf_block": [1, 1], "torch_dtype": "torch.bfloat16", "use_packed_ue8m0": false, "use_tma_aligned_col_major_sf": false, "with_sf": false}, {"custom_clamp_min_value": null, "round_sf": true, "sf_block": [128, 128], "torch_dtype": "torch.float8_e4m3fn", "use_packed_ue8m0": false, "use_tma_aligned_col_major_sf": false}], "kwargs": {}}
+// Variant: e4m3
+// Compile args: {"args": [7168, {"sf_block": [1, 1], "torch_dtype": "torch.bfloat16", "use_packed_ue8m0": false, "use_tma_aligned_col_major_sf": false, "with_sf": false}, {"custom_clamp_min_value": null, "round_sf": true, "sf_block": [128, 128], "torch_dtype": "torch.float8_e4m3fn", "use_packed_ue8m0": false, "use_tma_aligned_col_major_sf": false}], "kwargs": {}, "variant": "e4m3"}
 // Public API: tile_kernels.quant.per_block_cast
 #include <tl_templates/cuda/cuda_fp8.h>
 #include <math_constants.h>

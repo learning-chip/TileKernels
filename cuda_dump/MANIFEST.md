@@ -40,7 +40,8 @@
 | `tile_kernels/moe/topk_sum_and_topk_group_idx_kernel.cu` | `tile_kernels/moe/topk_sum_and_topk_group_idx_kernel.py` | `get_topk_sum_and_topk_group_idx_kernel` | `topk_sum_and_topk_group_idx_kernel` | `tile_kernels.moe.topk_sum_and_topk_group_idx` |
 | `tile_kernels/quant/cast_back_e5m6_kernel.cu` | `tile_kernels/quant/cast_back_e5m6_kernel.py` | `get_cast_back_e5m6_kernel` | `cast_back_e5m6_kernel` | `tile_kernels.quant.cast_back_e5m6` |
 | `tile_kernels/quant/cast_back_kernel.cu` | `tile_kernels/quant/cast_back_kernel.py` | `get_cast_back_kernel` | `cast_back_kernel` | `tile_kernels.quant.cast_back` |
-| `tile_kernels/quant/per_block_cast_kernel.cu` | `tile_kernels/quant/per_block_cast_kernel.py` | `get_per_block_cast_kernel` | `per_block_cast_kernel` | `tile_kernels.quant.per_block_cast` |
+| `tile_kernels/quant/per_block_cast_kernel__e2m1.cu` | `tile_kernels/quant/per_block_cast_kernel.py` | `get_per_block_cast_kernel` | `per_block_cast_kernel` | `tile_kernels.quant.per_block_cast` |
+| `tile_kernels/quant/per_block_cast_kernel__e4m3.cu` | `tile_kernels/quant/per_block_cast_kernel.py` | `get_per_block_cast_kernel` | `per_block_cast_kernel` | `tile_kernels.quant.per_block_cast` |
 | `tile_kernels/quant/per_block_cast_lossless_kernel.cu` | `tile_kernels/quant/per_block_cast_lossless_kernel.py` | `get_per_block_cast_lossless_kernel` | `per_block_cast_lossless_kernel` | `tile_kernels.quant.per_block_cast_lossless` |
 | `tile_kernels/quant/per_channel_cast_and_transpose_kernel.cu` | `tile_kernels/quant/per_channel_cast_and_transpose_kernel.py` | `get_per_channel_cast_and_transpose_kernel` | `per_channel_cast_and_transpose_kernel` | `tile_kernels.quant.per_channel_cast_and_transpose` |
 | `tile_kernels/quant/per_channel_cast_fused_kernel.cu` | `tile_kernels/quant/per_channel_cast_fused_kernel.py` | `get_per_channel_cast_fused_kernel` | `per_channel_cast_fused_kernel` | `tile_kernels.quant.per_channel_cast_fused` |
